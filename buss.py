@@ -5,13 +5,20 @@ a = """12 2
 
 raw_to_pure = {}
 data_list = []
-the_time = {"hour": 0, "minute":0}
+
 for row in a.split('\n'):
     data_list.append(row)
     words = row.split(" ")
 
-for element in data_list:
+the_time = {"hour": data_list[0].split()[0], "minute": data_list[0].split()[1]}
+number_of_stops = data_list[1]
 
-    print(element.split())
-
-print(data_list)
+for index, value in enumerate(data_list):
+    if index == 0:
+        the_time = {"hour": value.split()[0], "minute": value.split()[1]}
+        print(the_time)
+    if index == 1:
+        number_of_stops = value
+        print(number_of_stops)
+    elif index > 1:
+        print(value)
